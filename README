@@ -1,0 +1,12 @@
+The script setup.sh creates the default container configuration file for unprivileged container 
+according to the guidelines at https://help.ubuntu.com/lts/serverguide/lxc.html
+
+The script bridgesetup.sh configures the network bridge.
+
+The containers C1 and C2 are set to have static IPs by creating the file /etc/lxc/dhcp.conf containing the following lines:
+dhcp-host=C1,10.0.3.11
+dhcp-host=C2,10.0.3.12
+
+LXC_DHCP_CONFILE=/etc/lxc/dhcp.conf was added to /etc/default/lxc-net to allow for static IPs.
+
+The script container.sh 
