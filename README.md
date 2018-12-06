@@ -1,15 +1,16 @@
 # leo1port2
-Soulution to the second assigment by Magil16 ans Throe16
+Soulution to the second assigment by Magil16 and Throe16
+It is required to run the scripts from root for the solution to work. 
 The script setup.sh creates the default container configuration file for unprivileged container 
 according to the guidelines at https://help.ubuntu.com/lts/serverguide/lxc.html
 
 The script bridgesetup.sh configures the network bridge.
 
-The containers C1 and C2 are set to have static IPs by creating the file /etc/lxc/dhcp.conf containing the following lines:
+The containers C1 and C2 are set to have static IPs using the staticdhcp.sh which creates the file /etc/lxc/dhcp.conf containing the following lines:
 dhcp-host=C1,10.0.3.11
 dhcp-host=C2,10.0.3.12
-
-LXC_DHCP_CONFILE=/etc/lxc/dhcp.conf was added to /etc/default/lxc-net to allow for static IPs.
+and adds the following line to /etc/default/lxc-net in order to allow for static IPs:
+LXC_DHCP_CONFILE=/etc/lxc/dhcp.conf
 
 The script container.sh creates and starts containers C1 and C2.
 
